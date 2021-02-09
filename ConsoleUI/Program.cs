@@ -1,5 +1,7 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -8,11 +10,70 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
+            CarManager carManager = new CarManager(new EfCarDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            //GetAllTest();
+            //GetByIdTest();
+            //HatalıEklemeTest();
+            //CarAddedTest();
+            //BrandAddedTest();
+            //ColorAddedTest();
+
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine("Araç Adı: " + car.CarName + " ------- " +"Markası: " + car.BrandName +" ------- " + "Rengi : " + car.ColorName + " ------- " + " Günlük Fiyatı: " + car.DailyPrice + " TL \n");
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void ColorAddedTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            colorManager.Add(new Color { ColorId = 4, ColorName = "Formula Kırmızısı" });
+        }
+
+        private static void BrandAddedTest()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            brandManager.Add(new Brand { BrandId = 5, BrandName = "Ferrari" });
+        }
+
+        private static void CarAddedTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Add(new Car { Id = 6, CarName = "Q7", BrandId = 4, ColorId = 4, ModelYear = 2007, DailyPrice = 300, Description = "Otomatik" });
+        }
+
+        private static void HatalıEklemeTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            carManager.Add(new Car { BrandId = 3, ColorId = 2, DailyPrice = 0, ModelYear = 2005, Description = "Otomatik" });
+            brandManager.Add(new Brand { BrandName = "T" });
+        }
+
+        private static void GetByIdTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            Console.WriteLine(carManager.GetById(1).CarName);
+            Console.WriteLine("\n");
+        }
+
+        private static void GetAllTest()
+        {
+            Console.WriteLine("TÜM ARABALAR:");
+            CarManager carManager = new CarManager(new EfCarDal());
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine("Modeli: "+ car.ModelYear + " Günlük Kirası: " + car.DailyPrice + " Araç Açıklaması: "+ car.Description);
+                Console.WriteLine("ID: " + car.Id + " Araç Adı: " + car.CarName + " Marka Numarası: " + car.BrandId +
+                    " Renk Numarası: " + car.ColorId + " Günlük Fiyatı: " + car.DailyPrice + " Açıklaması: " + car.Description);
+
             }
+            Console.WriteLine("\n");
         }
     }
+    
 }
