@@ -33,7 +33,18 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
 
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            RentalAdd(rentalManager);
+
             Console.ReadLine();
+        }
+
+        private static void RentalAdd(RentalManager rentalManager)
+        {
+            var rental = rentalManager.Add(new Rental { RentalId = 3, CarId = 1, CustomerId = 2, ReturnDate = new DateTime(2021, 02, 12), 
+                RentDate = DateTime.Today });
+            Console.WriteLine(rental.Message);
+
         }
 
         //private static void ColorAddedTest()
