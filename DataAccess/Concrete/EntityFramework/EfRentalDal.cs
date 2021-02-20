@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (RecapProjectDBContext context = new RecapProjectDBContext())
             {
-                var result = from r in filter == null ? context.Rentals : context.Rentals.Where(filter)
+                var result = from r in filter is null ? context.Rentals : context.Rentals.Where(filter)
                              join c in context.Cars
                              on r.CarId equals c.Id
                              join cu in context.Customers
