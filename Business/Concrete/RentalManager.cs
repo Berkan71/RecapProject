@@ -34,14 +34,14 @@ namespace Business.Concrete
             return new SuccessResult(result.Message);
         }
 
-        [ValidationAspect(typeof(RentalValidator))]
+        
         public IResult CheckReturnDate(int carId)
         {
-            //var result = _rentalDal.GetRentalDetails(r => r.CarId == carId && r.ReturnDate == null);
-            //if (result.Count > 0)
-            //{
-            //    return new ErrorResult(Messages.RentalAddedError);
-            //}
+            var result = _rentalDal.GetRentalDetails(r => r.CarId == carId && r.ReturnDate == null);
+            if (result.Count > 0)
+            {
+                return new ErrorResult(Messages.RentalAddedError);
+            }
             return new SuccessResult(Messages.RentalAdded);
         }
 
