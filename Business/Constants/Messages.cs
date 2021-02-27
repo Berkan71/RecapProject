@@ -48,6 +48,8 @@ namespace Business.Constants
         public static string RentalIdListed = "Kiralama Id'ye Göre Listelendi.";
         public static string RentalAddedError = "Kiralama Başarısız";
 
+        public static string FailedImageLimit = "Araç Resim Ekleme Limitine Ulaştınız!";
+
         public static string MaintenanceTime = "Sistem şu anda bakımda";
     }
 }
