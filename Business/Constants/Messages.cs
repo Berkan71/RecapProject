@@ -51,5 +51,14 @@ namespace Business.Constants
         public static string FailedImageLimit = "Araç Resim Ekleme Limitine Ulaştınız!";
 
         public static string MaintenanceTime = "Sistem şu anda bakımda";
+        public static string AuthorizationDenied = "yetki hatası";
+
+        public static string UserRegistered = "Kullanıcı Kayıt Edildi";
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string PasswordError = "Parola Hatası";
+        public static string SuccessfulLogin = "Giriş Başarılı";
+        public static string UserAlreadyExists = "Böyle bir kullanıcı zaten var";
+        public static string AccessTokenCreated = "Token Oluşturuldu";
+        
     }
 }
