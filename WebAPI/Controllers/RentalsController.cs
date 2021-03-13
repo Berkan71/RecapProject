@@ -64,10 +64,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getrentaldetails")]
-        public IActionResult GetRentalDetails(int carId)
+        [HttpGet("getrentaldetailsdto")]
+        public IActionResult GetRentalDetailsDto()
         {
-            var result = _rentalService.GetRentalDetailsDto(carId);
+            var result = _rentalService.GetRentalDetailsDto();
             if (result.Success)
             {
                 return Ok(result);
@@ -75,26 +75,27 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        //[HttpPost("checkreturndate")]
-        //public IActionResult CheckReturnDate(int carId)
-        //{
-        //    var result = _rentalService.CheckReturnDate(carId);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
+        [HttpPost("checkreturndate")]
+        public IActionResult CheckReturnDate(int carId)
+        {
+            var result = _rentalService.CheckReturnDate(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
-        //[HttpPost("updatereturndate")]
-        //public IActionResult UpdateReturnDate(int carId)
-        //{
-        //    var result = _rentalService.UpdateReturnDate(carId);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
+        [HttpPost("updatereturndate")]
+        public IActionResult UpdateReturnDate(int carId)
+        {
+            var result = _rentalService.UpdateReturnDate(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }
