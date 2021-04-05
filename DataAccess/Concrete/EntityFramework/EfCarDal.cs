@@ -53,7 +53,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorId = color.ColorId,
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice,
-                                 CarName = car.Description,
+                                 CarName = car.CarName,
                                  ModelYear = car.ModelYear
 
                              };
