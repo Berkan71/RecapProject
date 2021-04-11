@@ -59,6 +59,19 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Giriş Başarılı";
         public static string UserAlreadyExists = "Böyle bir kullanıcı zaten var";
         public static string AccessTokenCreated = "Token Oluşturuldu";
-        
+
+
+        public static string AddUserMessage = "Üye başarıyla eklendi.";
+
+        public static string DeleteUserMessage = "Üye başarıyla silindi.";
+        public static string EditUserMessage = "Üye başarıyla güncellendi.";
+        public static string GetSuccessUserMessage = "Üye bilgisi / bilgileri getirildi.";
+        public static string GetErrorUserMessage = "Üye bilgisi / bilgileri getirilemedi.";
+
+        public static string Registered = "Başarıyla kayıt olundu";
+        public static string WrongPassword = "Yanlış parola";
+        public static string UserAvailable = "Kullanıcı mevcut";
+        public static string TokenCreated = "Token oluşturuldu.";
+
     }
 }

@@ -54,7 +54,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice,
                                  CarName = car.CarName,
-                                 ModelYear = car.ModelYear
+                                 ModelYear = car.ModelYear,
+                                 FindexScore = car.FindexScore
 
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
